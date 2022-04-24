@@ -37,7 +37,7 @@ func GetPCDNStatus(feedId string, pin string, tgt string) *model.RouterStatus {
 		}).
 		//SetBody(`{"feed_id":"457381614087937282","command":[{"stream_id":"SetParams","current_value":"{\n  \"cmd\" : \"jdcplugin_opt.get_pcdn_status\"\n}"}]}`).
 		SetBody(body).
-		Post("https://gw.smart.jd.com/f/service/controlDevice?plat=ios&hard_platform=iPhone13%2C2&app_version=6.5.5&plat_version=15.1.1&channel=jdCloud")
+		Post("https://gw.smart.jd.com/f/service/controlDevice?plat=ios&hard_platform=iPhone13%2C2&app_version=6.5.5&plat_version=15.1.1&device_id=fcff86cada8cd537c619bebfd81e07a7&channel=jdCloud")
 	if err != nil || resp.IsError() || gjson.Get(resp.String(), "status").String() != "0" {
 		panic(exception.New("获取路由器状态失败"))
 	}
